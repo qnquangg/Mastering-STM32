@@ -41,6 +41,7 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+uint8_t buttonStatus;
 
 /* USER CODE BEGIN PV */
 
@@ -98,7 +99,8 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	buttonStatus = HAL_GPIO_ReadPin(BTN_GPIO_Port, BTN_Pin);
+	HAL_GPIO_WritePin(LED_GPIO_Port, LED_Pin, buttonStatus);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
