@@ -1,0 +1,52 @@
+Configuration	TimerEventCounter.ioc
+STM32CubeMX 	5.5.0
+Date	09/22/2020
+MCU	STM32F411RETx
+
+
+
+PERIPHERALS	MODES	FUNCTIONS	PINS
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+TIM1	ETR2	TIM1_ETR	PA12
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+21	PA5	GPIO_Output	LED
+45	PA12	TIM1_ETR	
+PERIPHERALS	MODES	FUNCTIONS	PINS
+SYS	SysTick	SYS_VS_Systick	VP_SYS_VS_Systick
+TIM1	ETR2	TIM1_ETR	PA12
+
+
+
+Pin Nb	PINs	FUNCTIONs	LABELs
+21	PA5	GPIO_Output	LED
+45	PA12	TIM1_ETR	
+
+
+
+SOFTWARE PROJECT
+
+Project Settings : 
+Project Name : TimerEventCounter
+Project Folder : /home/quang/Desktop/Mastering-STM32/TimerEventCounter
+Toolchain / IDE : STM32CubeIDE
+Firmware Package Name and Version : STM32Cube FW_F4 V1.24.2
+
+
+Code Generation Settings : 
+STM32Cube MCU packages and embedded software packs : Copy only the necessary library files
+Generate peripheral initialization as a pair of '.c/.h' files per peripheral : No
+Backup previously generated files when re-generating : No
+Delete previously generated files when not re-generated : Yes
+Set all free pins as analog (to optimize the power consumption) : No
+
+
+Toolchains Settings : 
+Compiler Optimizations : 
+
+
+
+
+
