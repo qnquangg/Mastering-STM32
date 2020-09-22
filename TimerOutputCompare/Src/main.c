@@ -91,7 +91,10 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM4_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_TIM_OC_Start(&htim4, TIM_CHANNEL_1);
+  HAL_TIM_OC_Start(&htim4, TIM_CHANNEL_2);
+  HAL_TIM_OC_Start(&htim4, TIM_CHANNEL_3);
+  HAL_TIM_OC_Start(&htim4, TIM_CHANNEL_4);
   /* USER CODE END 2 */
  
  
