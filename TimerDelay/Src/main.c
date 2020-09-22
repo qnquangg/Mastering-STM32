@@ -94,7 +94,8 @@ int main(void)
 
   /* USER CODE END 2 */
  
- 
+  HAL_TIM_Base_Start_IT(&htim2);
+
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
@@ -254,4 +255,16 @@ void assert_failed(uint8_t *file, uint32_t line)
 }
 #endif /* USE_FULL_ASSERT */
 
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+  /* Prevent unused argument(s) compilation warning */
+  UNUSED(htim);
+
+  /* NOTE : This function should not be modified, when the callback is needed,
+            the HAL_TIM_PeriodElapsedCallback could be implemented in the user file
+   */
+
+  // Do something everytime Period Elapsed
+  HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
+}
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
