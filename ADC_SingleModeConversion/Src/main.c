@@ -42,7 +42,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
-
+uint32_t sensor_value;
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -101,7 +101,12 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  // Start ADC
+	  HAL_ADC_Start(&hadc1);
+	  // Poll for conversion
+	  HAL_ADC_PollForConversion(&hadc1, 1);
+	  // Get conversion
+	  sensor_value = HAL_ADC_GetValue(&hadc1);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
