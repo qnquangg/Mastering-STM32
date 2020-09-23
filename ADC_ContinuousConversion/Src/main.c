@@ -42,7 +42,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
-
+uint32_t volatile sensor_value;
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -94,14 +94,16 @@ int main(void)
 
   /* USER CODE END 2 */
  
- 
+  // 1. Start ADC
+  HAL_ADC_Start(&hadc1);
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  // 2. Get conversion
+	  sensor_value = HAL_ADC_GetValue(&hadc1);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
