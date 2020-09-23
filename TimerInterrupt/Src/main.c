@@ -51,6 +51,7 @@ TIM_HandleTypeDef htim10;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_TIM10_Init(void);
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -91,7 +92,7 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM10_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_TIM_Base_Start_IT(&htim10);
   /* USER CODE END 2 */
  
  
@@ -214,6 +215,11 @@ void Error_Handler(void)
   /* User can add his own implementation to report the HAL error return state */
 
   /* USER CODE END Error_Handler_Debug */
+}
+
+void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
+{
+	HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
 }
 
 #ifdef  USE_FULL_ASSERT
