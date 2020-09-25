@@ -42,7 +42,7 @@
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
 DMA_HandleTypeDef hdma_adc1;
-
+uint16_t sensorValue[1];
 /* USER CODE BEGIN PV */
 
 /* USER CODE END PV */
@@ -60,7 +60,11 @@ static void MX_ADC1_Init(void);
 /* USER CODE BEGIN 0 */
 
 /* USER CODE END 0 */
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef* hadc)
+{
+  // Do something
 
+}
 /**
   * @brief  The application entry point.
   * @retval int
@@ -92,7 +96,7 @@ int main(void)
   MX_DMA_Init();
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t *)sensorValue, 1);
   /* USER CODE END 2 */
 
   /* Infinite loop */
